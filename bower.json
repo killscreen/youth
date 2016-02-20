@@ -13,6 +13,9 @@
   "homepage": "",
   "private": true,
   "dependencies": {
-    "requirejs": "^2.1.22"
+    "requirejs": "^2.1.22",
+    "lodash": "^4.5.0",
+    "zepto": "^1.1.6",
+    "text": "requirejs-text#^2.0.14"
   }
 }
