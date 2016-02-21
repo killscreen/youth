@@ -1,29 +1,19 @@
-define(['lodash', 'zepto'], function (_, $) {
+define(['lodash', 'zepto', '../Observable'], function (_, $, Observable) {
   function View(template) {
     this.render = _.template(template);
-    this.observers = [];
     this.update({});
+
+    Observable(_.bind(function (notify) {
+      this.notify = notify;
+      notify(this.$elements);
+    }, this);
   }
 
-  View.prototype.observe = function (observer) {
-    var self = this;
-    this.observers.push(observer);
-    return function unobserve() {
-      self.observers = self.observers.filter(function (o) {
-        return o !== observer;
-      });
-    };
-  }
+  View.prototype = Object.create(Observable.prototype);
 
   View.prototype.update = function (model) {
     var $elements = this.$elements = this.render(model);
-    this.observers.forEach(function (observer) {
-      observer($elements);
-    });
-  };
-
-  View.prototype.elements = function () {
-    return this.$elements;
+    this.notify($elements);
   };
 
   return View;
