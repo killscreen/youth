@@ -1,5 +1,5 @@
 define(['lodash', 'zepto', '../Observable'], function (_, $, Observable) {
-  function View(template) {
+  function TemplatedView(template) {
     this.render = _.template(template);
     this.update({});
 
@@ -9,12 +9,12 @@ define(['lodash', 'zepto', '../Observable'], function (_, $, Observable) {
     }, this);
   }
 
-  View.prototype = Object.create(Observable.prototype);
+  TemplatedView.prototype = Object.create(Observable.prototype);
 
-  View.prototype.update = function (model) {
+  TemplatedView.prototype.update = function (model) {
     var $elements = this.$elements = this.render(model);
     this.notify($elements);
   };
 
-  return View;
+  return TemplatedView;
 });
