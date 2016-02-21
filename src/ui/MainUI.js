@@ -10,9 +10,5 @@ define(['./Region', './MainView'], function (Region, MainView) {
     });
   }
 
-  MainUI.prototype.update = function (model) {
-    this.body.show(this.mainView, model);
-  };
-
   return MainUI;
 });

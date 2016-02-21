@@ -1,10 +1,22 @@
-define([], function () {
+define([
+  './ui/MainView',
+  './ui/Region',
+  './game/Game'
+], function (MainView, Region, Game) {
   function Youth(window) {
     this.window = window;
+    this.body = new Region(window.document.body);
   }
 
   Youth.prototype.run = function () {
-    this.window.alert("Hello world!");
+    var game = new Game(),
+      view = new MainView();
+
+    this.body.show(view);
+
+    this.unobserve = game.observe(function (state) {
+      view.update(state);
+    });
   };
 
   return Youth;
