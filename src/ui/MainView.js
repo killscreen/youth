@@ -1,11 +1,11 @@
 define([
   'text!./main.html',
-  './View',
+  './StaticView',
   './Region',
   '$'
-], function (mainHtml, View, Region, $) {
+], function (mainHtml, StaticView, Region, $) {
   function MainView() {
-    View(mainHtml);
+    StaticView(mainHtml);
     this.canvas = $(this.elements()).find('canvas');
     this.ul = new Region($(this.elements()).find('ul')[0]);
     this.ontology = new OntologyView();
@@ -13,7 +13,7 @@ define([
     this.ul.show(this.ontology);
   }
 
-  MainView.prototype = Object.create(View.prototype);
+  MainView.prototype = Object.create(StaticView.prototype);
 
   MainView.prototype.update = function (model) {
     this.scene.update(model.scene);
