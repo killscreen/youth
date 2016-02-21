@@ -3,8 +3,8 @@ define([], function () {
     this.element = element;
   }
 
-  Region.prototype.show = function (view) {
-    this.element.innerHTML = view.render();
+  Region.prototype.show = function (view, model) {
+    this.element.innerHTML = view.render(model);
   };
 
   return Region;
