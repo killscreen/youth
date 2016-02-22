@@ -6,7 +6,7 @@ define(['lodash', 'zepto', '../Observable'], function (_, $, Observable) {
     Observable.call(this, _.bind(function (notify) {
       this.notify = notify;
       notify(this.$elements);
-    }, this);
+    }, this));
   }
 
   TemplatedView.prototype = Object.create(Observable.prototype);

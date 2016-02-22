@@ -16,11 +16,16 @@ define(['../Observable'], function (Observable) {
             what: 'pig'
           }
         ],
-        ontology: [
+        facts: [
           {
             subject: 'fire',
             object: 'hot',
             modifiers: [ 'very' ]
+          },
+          {
+            subject: 'water',
+            object: 'wet',
+            modifiers: [ 'very', 'very' ]
           }
         ]
       };

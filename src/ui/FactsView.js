@@ -7,7 +7,7 @@ define([
   'lodash'
 ], function (factHtml, TemplatedView, Observable, Region, $, _) {
   function FactsView() {
-    this.$ul = $('ul');
+    this.$ul = $('<ul>');
     this.region = new Region(this.$ul[0]);
     this.template = _.template(factHtml);
     Observable.call(this, _.bind(function (notify) {
@@ -18,10 +18,10 @@ define([
   FactsView.prototype = Object.create(Observable.prototype);
 
   FactsView.prototype.update = function (facts) {
-    $ul.empty();
-    $ul.append(facts.map(_.bind(function (fact) {
-      return $(this.template(fact));
-    }, this)));
+    this.$ul.empty();
+    this.$ul.append($(facts.map(_.bind(function (fact) {
+      return this.template(fact);
+    }, this)).join('')));
   };
 
   return FactsView;
