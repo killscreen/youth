@@ -24,7 +24,7 @@ define(['../Observable'], function (Observable) {
           }
         ]
       };
-    Observable(function (notify) {
+    Observable.call(this, function (notify) {
       self.notify = notify;
       notify(state);
     });
@@ -32,5 +32,5 @@ define(['../Observable'], function (Observable) {
 
   Game.prototype = Object.create(Observable.prototype);
 
-  return game;
+  return Game;
 });

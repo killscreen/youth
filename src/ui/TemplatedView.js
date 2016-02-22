@@ -3,7 +3,7 @@ define(['lodash', 'zepto', '../Observable'], function (_, $, Observable) {
     this.render = _.template(template);
     this.update({});
 
-    Observable(_.bind(function (notify) {
+    Observable.call(this, _.bind(function (notify) {
       this.notify = notify;
       notify(this.$elements);
     }, this);
