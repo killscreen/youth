@@ -1,10 +1,12 @@
 define([
-  './physics/Momentum'
-], function (Momentum) {
+  './physics/Momentum',
+  './physics/Collision'
+], function (Momentum, Collision) {
   function Engine(game) {
     this.game = game;
     this.subsystems = [
-      new Momentum()
+      new Momentum(),
+      new Collision()
     ];
   }
 
