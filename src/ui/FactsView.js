@@ -20,11 +20,20 @@ define([
       notify($elements);
     }, this));
 
-    facts.observe(_.bind(function (facts) {
+    this.facts = facts;
+    this.facts.observe(_.bind(function (facts) {
       this.$ul.empty();
-      this.$ul.append($(facts.map(_.bind(function (fact) {
-        return this.template(fact);
-      }, this)).join('')));
+      facts.forEach(_.bind(function (fact, index) {
+        var $elements = $(this.template(fact)),
+          $x = $elements.find('a');
+        $x.click(_.bind(function (event) {
+          event.preventDefault();
+          this.facts.mutate(function (facts) {
+            facts.splice(index, 1);
+          });
+        }, this));
+        this.$ul.append($elements);
+      }, this));
     }, this));
 
     $form.submit(_.bind(function (event) {
