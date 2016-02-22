@@ -9,7 +9,9 @@ define([
 ], function (factHtml, factsHtml, TemplatedView, Observable, Region, $, _) {
 
   function FactsView(facts) {
-    var $elements = $(factsHtml);
+    var $elements = $(factsHtml),
+      $form = $elements.filter('form'),
+      $input = $elements.find('input[type=text]');
     this.$ul = $elements.filter('ul');
     this.region = new Region(this.$ul[0]);
     this.template = _.template(factHtml);
@@ -21,6 +23,10 @@ define([
       this.$ul.append($(facts.map(_.bind(function (fact) {
         return this.template(fact);
       }, this)).join('')));
+    }, this));
+    $form.submit(_.bind(function (event) {
+      console.log($input.val());
+      event.preventDefault();
     }, this));
   }
 
