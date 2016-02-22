@@ -17,7 +17,7 @@ define(['./Observable', 'lodash'], function (Observable, _) {
 
   Submutable.prototype = Object.create(Observable.prototype);
 
-  Mutable.prototype.mutate = function (mutator) {
+  Submutable.prototype.mutate = function (mutator) {
     mutator(this.prior);
     this.notify(this.prior);
     this.mutable.mutate(function (state) {

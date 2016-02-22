@@ -1,24 +1,27 @@
 define([
   'text!./fact.html',
+  'text!./facts.html',
   './TemplatedView',
   '../Observable',
   './Region',
   'zepto',
   'lodash'
-], function (factHtml, TemplatedView, Observable, Region, $, _) {
+], function (factHtml, factsHtml, TemplatedView, Observable, Region, $, _) {
+
   function FactsView(facts) {
-    this.$ul = $('<ul>');
+    var $elements = $(factsHtml);
+    this.$ul = $elements.filter('ul');
     this.region = new Region(this.$ul[0]);
     this.template = _.template(factHtml);
     Observable.call(this, _.bind(function (notify) {
-      notify(this.$ul);
+      notify($elements);
     }, this));
     facts.observe(_.bind(function (facts) {
       this.$ul.empty();
       this.$ul.append($(facts.map(_.bind(function (fact) {
         return this.template(fact);
       }, this)).join('')));
-    }));
+    }, this));
   }
 
   FactsView.prototype = Object.create(Observable.prototype);
