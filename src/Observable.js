@@ -20,5 +20,9 @@ define(['lodash'], function (_) {
     }, this);
   };
 
+  Observable.prototype.destroy = function () {
+    this.observers = [];
+  };
+
   return Observable;
 });
