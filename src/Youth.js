@@ -10,13 +10,9 @@ define([
 
   Youth.prototype.run = function () {
     var game = new Game(),
-      view = new MainView();
+      view = new MainView(game);
 
     this.body.show(view);
-
-    this.unobserve = game.observe(function (state) {
-      view.update(state);
-    });
   };
 
   return Youth;

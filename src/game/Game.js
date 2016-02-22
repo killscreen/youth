@@ -29,7 +29,7 @@ define(['../Mutable'], function (Mutable) {
           }
         ]
       };
-    Mutable.call(this, state);
+    Mutable.call(this, state);    
   }
 
   Game.prototype = Object.create(Mutable.prototype);

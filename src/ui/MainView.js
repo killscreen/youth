@@ -6,9 +6,9 @@ define([
   'zepto',
   'lodash'
 ], function (mainHtml, StaticView, Region, FactsView, $, _) {
-  function MainView() {
+  function MainView(game) {
     StaticView.call(this, mainHtml);
-    this.facts = new FactsView();
+    this.facts = new FactsView(game.facts());
     this.observe(_.bind(function (elements) {
       this.pane = new Region($(elements.filter('div')[0]));
       this.pane.show(this.facts);
@@ -19,10 +19,6 @@ define([
   }
 
   MainView.prototype = Object.create(StaticView.prototype);
-
-  MainView.prototype.update = function (model) {
-    this.facts.update(model.facts);
-  };
 
   return MainView;
 });
