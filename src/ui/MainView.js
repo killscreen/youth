@@ -3,12 +3,13 @@ define([
   './StaticView',
   './Region',
   './FactsView',
+  '../Submutable',
   'zepto',
   'lodash'
-], function (mainHtml, StaticView, Region, FactsView, $, _) {
+], function (mainHtml, StaticView, Region, FactsView, Submutable, $, _) {
   function MainView(game) {
     StaticView.call(this, mainHtml);
-    this.facts = new FactsView(game.facts());
+    this.facts = new FactsView(new Submutable(game, 'facts'));
     this.observe(_.bind(function (elements) {
       this.pane = new Region($(elements.filter('div')[0]));
       this.pane.show(this.facts);
