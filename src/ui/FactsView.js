@@ -25,8 +25,17 @@ define([
       }, this)).join('')));
     }, this));
     $form.submit(_.bind(function (event) {
-      console.log($input.val());
+      var tokens = $input.val().split(" ");
       event.preventDefault();
+      facts.mutate(function (facts) {
+        facts.push({
+          subject: tokens[0],
+          modifiers: tokens.slice(1, tokens.length - 1),
+          object: tokens[tokens.length - 1]
+        });
+      });
+
+      return false;
     }, this));
   }
 
