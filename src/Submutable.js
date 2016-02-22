@@ -10,7 +10,7 @@ define(['./Observable', 'lodash'], function (Observable, _) {
       var value = state && state[property];
       if (!_.isEqual(value, this.prior)) {
         this.notify(value);
-        this.prior = value;
+        this.prior = _.cloneDeep(value);
       }
     }, this));
   }
@@ -21,7 +21,7 @@ define(['./Observable', 'lodash'], function (Observable, _) {
     mutator(this.prior);
     this.notify(this.prior);
     this.mutable.mutate(_.bind(function (state) {
-      state[this.property] = this.prior;
+      state[this.property] = _.cloneDeep(this.prior);
     }, this));
   };
 

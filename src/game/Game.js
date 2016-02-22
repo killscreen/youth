@@ -6,7 +6,7 @@ define(['../Mutable'], function (Mutable) {
           {
             position: [ 0, 0 ],
             radius: 1,
-            velocity: [ 0, 0 ],
+            velocity: [ 1, 1 ],
             what: 'you'
           },
           {
@@ -29,7 +29,7 @@ define(['../Mutable'], function (Mutable) {
           }
         ]
       };
-    Mutable.call(this, state);    
+    Mutable.call(this, state);
   }
 
   Game.prototype = Object.create(Mutable.prototype);
