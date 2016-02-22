@@ -1,4 +1,4 @@
-define(['../Observable'], function (Observable) {
+define(['../Mutable'], function (Mutable) {
   function Game() {
     var self = this,
       state = {
@@ -29,13 +29,10 @@ define(['../Observable'], function (Observable) {
           }
         ]
       };
-    Observable.call(this, function (notify) {
-      self.notify = notify;
-      notify(state);
-    });
+    Mutable.call(this, state);
   }
 
-  Game.prototype = Object.create(Observable.prototype);
+  Game.prototype = Object.create(Mutable.prototype);
 
   return Game;
 });
