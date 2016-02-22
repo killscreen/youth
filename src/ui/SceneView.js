@@ -23,6 +23,17 @@ define([
           entity.position[0] * 32,
           entity.position[1] * 32
         );
+        context.beginPath();
+        context.arc(
+          entity.position[0] * 32,
+          entity.position[1] * 32,
+          entity.radius * 32,
+          0,
+          Math.PI * 2,
+          true
+        );
+        context.closePath();
+        context.stroke();
       });
     });
   }
