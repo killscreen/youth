@@ -7,9 +7,9 @@ define([
   './physics/Verlet',
   './ontology/Fact'
 ], function (Momentum, Collision, Player, Wall, Friction, Verlet, Fact) {
-  function Engine(game) {
+  function Engine(state) {
     var player = new Player();
-    this.game = game;
+    this.scene = state.scene();
     this.subsystems = [
       new Verlet(),
       player,
@@ -19,21 +19,23 @@ define([
       new Wall(12)
     ];
 
-    this.game.observe(function (state) {
-      player.facts(state.facts.map(function (fact) {
+    state.facts().observe(function (facts) {
+      player.facts(facts.map(function (fact) {
         return new Fact(fact.subject, fact.object, 1);
       }.bind(this)));
+    }.bind(this));
 
-      this.running = state.state.running;
+    state.status().observe(function (status) {
+      this.running = status.running;
     }.bind(this));
   }
 
   Engine.prototype.advance = function (delta) {
     var subsystems = this.subsystems;
     if (this.running) {
-      this.game.mutate(function (state) {
+      this.scene.mutate(function (entities) {
         subsystems.forEach(function (subsystem) {
-          subsystem.advance(state.scene, delta);
+          subsystem.advance(entities, delta);
         });
       });
     }

@@ -9,12 +9,11 @@ define([
   'zepto',
   'lodash'
 ], function (mainHtml, StaticView, Region, FactsView, SceneView, ToggleView, Submutable, $, _) {
-  function MainView(game) {
-    var state = new Submutable(game, 'state')
+  function MainView(state) {
     StaticView.call(this, mainHtml);
-    this.toggle = new ToggleView('Pause', 'Play', state, 'running');
-    this.facts = new FactsView(new Submutable(game, 'facts'));
-    this.scene = new SceneView(new Submutable(game, 'scene'));
+    this.toggle = new ToggleView('Pause', 'Play', state.status(), 'running');
+    this.facts = new FactsView(state.facts());
+    this.scene = new SceneView(state.scene());
     this.observe(_.bind(function (elements) {
       this.panes = [
         new Region($(elements.filter('div')[0])),
