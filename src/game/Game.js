@@ -50,6 +50,12 @@ define(['../Mutable'], function (Mutable) {
             radius: 0.5,
             velocity: [ 0, 0 ],
             what: 'fire'
+          },
+          {
+            position: [ 6, 10 ],
+            radius: 2,
+            velocity: [ 0, 0 ],
+            what: 'goal'
           }
         ],
         facts: [
