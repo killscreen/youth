@@ -1,8 +1,8 @@
 define(['zepto', '../Observable'], function ($, Observable) {
-  function ButtonView(callback, text) {
+  function ButtonView(topic, text) {
     var $element = $('<button>');
     $element.text(text);
-    $element.click(callback);
+    $element.click(topic.notify.bind(topic));
     Observable.call(this, function (notify) {
       notify($element);
     });

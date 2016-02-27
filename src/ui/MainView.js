@@ -11,7 +11,7 @@ define([
 ], function (mainHtml, StaticView, Region, FactsView, SceneView, ToggleView, ButtonView, $, _) {
   function MainView(state) {
     var toggle = new ToggleView('Pause', 'Play', state.status(), 'running'),
-      reset = new ButtonView(function () { window.alert("CLICK!")}, "Reset"),
+      reset = new ButtonView(state.reset(), "Reset"),
       facts = new FactsView(state.facts()),
       scene = new SceneView(state.scene());
 

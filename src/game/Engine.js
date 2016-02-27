@@ -8,10 +8,11 @@ define([
   './ontology/Fact'
 ], function (Momentum, Collision, Player, Wall, Friction, Verlet, Fact) {
   function Engine(state) {
-    var player = new Player();
+    var player = new Player(),
+      verlet = new Verlet();
     this.scene = state.scene();
     this.subsystems = [
-      new Verlet(),
+      verlet,
       player,
       new Momentum(),
       new Collision(),
@@ -28,6 +29,10 @@ define([
     state.status().observe(function (status) {
       this.running = status.running;
     }.bind(this));
+
+    state.reset().listen(function () {
+      verlet.reset();
+    });
   }
 
   Engine.prototype.advance = function (delta) {

@@ -12,13 +12,16 @@ define([
 
   Youth.prototype.run = function () {
     var state = new State(),
-      view = new MainView(state),
       previous = Date.now(),
       engine = new Engine(state),
       levels = new Levels();
 
-    levels.populate(state.scene(), 0);
+    function reset() {
+      levels.populate(state.scene(), 0);
+    }
 
+    reset();
+    state.reset().listen(reset);
     this.window.setInterval(function () {
       var now = Date.now(),
         delta = (now - previous) / 1000.0;
@@ -26,7 +29,7 @@ define([
       engine.advance(delta);
     }, 100);
 
-    this.body.show(view);
+    this.body.show(new MainView(state));
   };
 
   return Youth;

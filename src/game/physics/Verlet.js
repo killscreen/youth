@@ -17,5 +17,9 @@ define([], function () {
     });
   };
 
+  Verlet.prototype.reset = function () {
+    delete this.prior;
+  };
+
   return Verlet;
 });
