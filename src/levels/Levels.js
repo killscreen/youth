@@ -1,24 +1,17 @@
-define([], function () {
-  function Levels() {
+define([
+  'text!./0.json'
+], function () {
+  var levels = Array.prototype.slice.call(arguments, 0);
 
+  function Levels() {
   }
 
   Levels.prototype.populate = function (scene, index) {
     scene.mutate(function (entities) {
+      var parsed = JSON.parse(levels[index]);
       entities.splice(0, entities.length);
-
-      entities.push({
-        what: 'you',
-        position: [ 6, 1 ],
-        velocity: [ 0, 1 ],
-        radius: 1
-      });
-
-      entities.push({
-        what: 'fire',
-        position: [ 6, 6 ],
-        velocity: [ 0, 0 ],
-        radius: 2
+      parsed.forEach(function (entity) {
+        entities.push(entity);
       });
     });
   };

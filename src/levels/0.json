@@ -1,0 +1,14 @@
+[
+  {
+    "what": "you",
+    "position": [ 3, 0 ],
+    "velocity": [ 0, 2 ],
+    "radius": 1
+  },
+  {
+    "what": "fire",
+    "position": [ 4, 6 ],
+    "velocity": [ 0, 0 ],
+    "radius": 1.5
+  }
+]

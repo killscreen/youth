@@ -5,10 +5,9 @@ define([
   './FactsView',
   './SceneView',
   './ToggleView',
-  '../Submutable',
   'zepto',
   'lodash'
-], function (mainHtml, StaticView, Region, FactsView, SceneView, ToggleView, Submutable, $, _) {
+], function (mainHtml, StaticView, Region, FactsView, SceneView, ToggleView, $, _) {
   function MainView(state) {
     StaticView.call(this, mainHtml);
     this.toggle = new ToggleView('Pause', 'Play', state.status(), 'running');
