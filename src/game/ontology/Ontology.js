@@ -1,6 +1,6 @@
 define([], function () {
   function Ontology(facts) {
-    this.facts = this.facts;
+    this.facts = facts;
     this.table = {};
   }
 
