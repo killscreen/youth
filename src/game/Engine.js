@@ -1,21 +1,23 @@
 define([
   './physics/Momentum',
   './physics/Collision',
-  './physics/Mind',
-  './ontology/Fact',
-  './ontology/Ontology'
-], function (Momentum, Collision, Mind, Fact, Ontology) {
+  './physics/Player',
+  './physics/Wall',
+  './ontology/Fact'
+], function (Momentum, Collision, Player, Wall, Fact) {
   function Engine(game) {
+    var player = new Player();
     this.game = game;
     this.subsystems = [
+      player,
       new Momentum(),
-      new Collision()
+      new Collision(),
+      new Wall(12)
     ];
     this.game.observe(function (state) {
-      var ontology = new Ontology(state.facts.map(function (fact) {
+      player.facts(state.facts.map(function (fact) {
         return new Fact(fact.subject, fact.object, 1);
       }.bind(this)));
-      this.subsystems.push(new Mind('you', ontology, 'bad', -1));
     }.bind(this));
   }
 

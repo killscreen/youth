@@ -12,7 +12,11 @@ define([], function () {
       }.bind(this));
 
     function attract(entity) {
-      var force = this.weight * this.ontology.is(entity.what, this.attractor);
+      var is = this.ontology.is(entity.what, this.attractor),
+        force = is * this.weight;
+      if (is === undefined) {
+        return;
+      }
       matches.forEach(function (match) {
         var difference = match.position.map(function (v, i) {
             return entity.position[i] - v;
