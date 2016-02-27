@@ -16,7 +16,7 @@ define([
       new Momentum(),
       new Collision(),
       new Friction(0.1),
-      new Wall(12)
+      new Wall(32)
     ];
 
     state.facts().observe(function (facts) {

@@ -16,5 +16,9 @@ define([
     });
   };
 
+  Levels.prototype.count = function () {
+    return levels.length;
+  };
+
   return Levels;
 });

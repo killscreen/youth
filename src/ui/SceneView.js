@@ -3,6 +3,8 @@ define([
   'text!./scene.html',
   'zepto'
 ], function (StaticView, sceneHtml, $) {
+  var SCALE = 16;
+
   function SceneView(scene) {
     var canvas, context;
 
@@ -20,14 +22,14 @@ define([
       entities.map(function (entity) {
         context.strokeText(
           entity.what,
-          entity.position[0] * 32,
-          entity.position[1] * 32
+          entity.position[0] * SCALE,
+          entity.position[1] * 16
         );
         context.beginPath();
         context.arc(
-          entity.position[0] * 32,
-          entity.position[1] * 32,
-          entity.radius * 32,
+          entity.position[0] * SCALE,
+          entity.position[1] * SCALE,
+          entity.radius * SCALE,
           0,
           Math.PI * 2,
           true
