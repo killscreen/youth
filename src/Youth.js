@@ -3,7 +3,7 @@ define([
   './ui/Region',
   './state/State',
   './game/Engine',
-  './Levels'
+  './levels/Levels'
 ], function (MainView, Region, State, Engine, Levels) {
   function Youth(window) {
     this.window = window;
