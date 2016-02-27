@@ -29,7 +29,7 @@ define(['../Mutable'], function (Mutable) {
           },
           {
             position: [ 0, 0 ],
-            radius: 1,
+            radius: 0.5,
             velocity: [ 0, 0 ],
             what: 'fire'
           },
@@ -57,7 +57,12 @@ define(['../Mutable'], function (Mutable) {
             velocity: [ 0, 0 ],
             what: 'goal'
           }
-        ],
+        ].map(function (entity) {
+          entity.position = entity.position.map(function (v) {
+            return Math.max(v, entity.radius);
+          });
+          return entity;
+        }),
         facts: [
           {
             subject: 'fire',
