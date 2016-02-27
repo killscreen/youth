@@ -6,7 +6,7 @@ define(['../Mutable'], function (Mutable) {
           {
             position: [ 3, 1 ],
             radius: 1,
-            velocity: [ 0, 1 ],
+            velocity: [ 0, 2 ],
             what: 'you'
           },
           {
@@ -16,13 +16,13 @@ define(['../Mutable'], function (Mutable) {
             what: 'fire'
           },
           {
-            position: [ 6, 0 ],
+            position: [ 5.5, 0 ],
             radius: 1,
             velocity: [ 0, 0 ],
             what: 'fire'
           },
           {
-            position: [ 0, 12 ],
+            position: [ 0, 9 ],
             radius: 1,
             velocity: [ 0, 0 ],
             what: 'fire'
@@ -30,6 +30,18 @@ define(['../Mutable'], function (Mutable) {
           {
             position: [ 0, 0 ],
             radius: 1,
+            velocity: [ 0, 0 ],
+            what: 'fire'
+          },
+          {
+            position: [ 0, 4 ],
+            radius: 0.5,
+            velocity: [ 0, 0 ],
+            what: 'fire'
+          },
+          {
+            position: [ 7, 3 ],
+            radius: 0.5,
             velocity: [ 0, 0 ],
             what: 'fire'
           }

@@ -21,14 +21,15 @@ define([], function () {
         var difference = match.position.map(function (v, i) {
             return entity.position[i] - v;
           }),
-          magnitude = difference.reduce(function (sum, v) {
+          magnitude = Math.sqrt(difference.reduce(function (sum, v) {
             return sum + v * v;
-          }, 0),
+          }, 0)),
+          distance = magnitude - match.radius - entity.radius,
           direction = difference.map(function (v) {
             return magnitude !== 0 ? (v / magnitude) : 0;
           }),
           acceleration = direction.map(function (v) {
-            return v * force;
+            return v * force / (distance + 1);
           });
         match.velocity = match.velocity.map(function (v, i) {
           return v + acceleration[i] * delta;
