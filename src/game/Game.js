@@ -64,7 +64,10 @@ define(['../Mutable'], function (Mutable) {
             object: 'bad',
             modifiers: []
           }
-        ]
+        ],
+        state: {
+          running: false
+        }
       };
     Mutable.call(this, state);
   }

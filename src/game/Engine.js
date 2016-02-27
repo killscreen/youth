@@ -18,20 +18,25 @@ define([
       new Friction(0.1),
       new Wall(12)
     ];
+
     this.game.observe(function (state) {
       player.facts(state.facts.map(function (fact) {
         return new Fact(fact.subject, fact.object, 1);
       }.bind(this)));
+
+      this.running = state.state.running;
     }.bind(this));
   }
 
   Engine.prototype.advance = function (delta) {
     var subsystems = this.subsystems;
-    this.game.mutate(function (state) {
-      subsystems.forEach(function (subsystem) {
-        subsystem.advance(state.scene, delta);
+    if (this.running) {
+      this.game.mutate(function (state) {
+        subsystems.forEach(function (subsystem) {
+          subsystem.advance(state.scene, delta);
+        });
       });
-    });
+    }
   };
 
   return Engine;
