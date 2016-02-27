@@ -16,20 +16,26 @@ define(['../Mutable'], function (Mutable) {
             what: 'fire'
           },
           {
-            position: [ 5.5, 0 ],
-            radius: 1,
+            position: [ 5.5, 1 ],
+            radius: 1.25,
             velocity: [ 0, 0 ],
             what: 'fire'
           },
           {
             position: [ 0, 9 ],
-            radius: 1,
+            radius: 0.75,
             velocity: [ 0, 0 ],
             what: 'fire'
           },
           {
             position: [ 0, 0 ],
             radius: 1,
+            velocity: [ 0, 0 ],
+            what: 'fire'
+          },
+          {
+            position: [ 0, 5 ],
+            radius: 0.25,
             velocity: [ 0, 0 ],
             what: 'fire'
           },

@@ -3,8 +3,9 @@ define([
   './physics/Collision',
   './physics/Player',
   './physics/Wall',
+  './physics/Friction',
   './ontology/Fact'
-], function (Momentum, Collision, Player, Wall, Fact) {
+], function (Momentum, Collision, Player, Wall, Friction, Fact) {
   function Engine(game) {
     var player = new Player();
     this.game = game;
@@ -12,6 +13,7 @@ define([
       player,
       new Momentum(),
       new Collision(),
+      new Friction(0.1),
       new Wall(12)
     ];
     this.game.observe(function (state) {
