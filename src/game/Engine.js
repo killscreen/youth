@@ -5,30 +5,25 @@ define([
   './physics/Wall',
   './physics/Friction',
   './physics/Verlet',
-  './Notifier',
+  './Concluder',
   './ontology/Fact'
-], function (Momentum, Collision, Player, Wall, Friction, Verlet, Notifier, Fact) {
+], function (Momentum, Collision, Player, Wall, Friction, Verlet, Concluder, Fact) {
 
-  function Engine(state) {
+  function Engine(state, ontologies) {
     var player = new Player(),
       verlet = new Verlet(),
       finished = false,
-      victory = new Notifier('you', 'door', function () {
+      finish = function (topic) {
         if (!finished) {
-          state.victory().notify();
+          topic.notify();
           finished = true;
         }
-      }),
-      failure = new Notifier('you', 'fire', function () {
-        if (!finished) {
-          state.failure().notify();
-          finished = true;
-        }
-      }),
-      colliders = [ victory, failure ].map(function (notifier) {
-        return notifier.collide.bind(notifier);
-      });
-
+      },
+      concluder = new Concluder('you', {
+        bad: finish.bind(this, state.failure()),
+        good: finish.bind(this, state.victory())
+      }, ontologies.world()),
+      colliders = [ concluder.collide.bind(concluder) ];
 
     this.scene = state.scene();
     this.subsystems = [

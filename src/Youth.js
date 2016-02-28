@@ -3,8 +3,9 @@ define([
   './ui/Region',
   './state/State',
   './game/Engine',
-  './levels/Levels'
-], function (MainView, Region, State, Engine, Levels) {
+  './levels/Levels',
+  './levels/Ontologies'
+], function (MainView, Region, State, Engine, Levels, Ontologies) {
   function Youth(window) {
     this.window = window;
     this.body = new Region(window.document.body);
@@ -13,7 +14,8 @@ define([
   Youth.prototype.run = function () {
     var state = new State(),
       previous = Date.now(),
-      engine = new Engine(state),
+      ontologies = new Ontologies(),
+      engine = new Engine(state, ontologies),
       levels = new Levels(),
       level = -1;
 

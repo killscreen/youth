@@ -1,14 +1,22 @@
 [
   {
-    "subect": "fire",
-    "object": "bad"
+    "subject": "fire",
+    "object": "bad",
+    "modifiers": []
   },
   {
     "subject": "bear",
-    "object": "bad"
+    "object": "bad",
+    "modifiers": []
   },
   {
     "subject": "campfire",
-    "object": "fire"
+    "object": "fire",
+    "modifiers": []
+  },
+  {
+    "subject": "door",
+    "object": "good",
+    "modifiers": []
   }
 ]
