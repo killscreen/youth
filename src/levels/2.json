@@ -45,6 +45,25 @@
     "immobile": true
   },
   {
+    "what": "table",
+    "position": [ 16, 16 ],
+    "velocity": [ 0, 0 ],
+    "radius": 2,
+    "immobile": true
+  },
+  {
+    "what": "desk",
+    "position": [ 12, 12 ],
+    "velocity": [ 0, 0 ],
+    "radius": 1.5
+  },
+  {
+    "what": "desk",
+    "position": [ 12, 20 ],
+    "velocity": [ 0, 0 ],
+    "radius": 1.5
+  },
+  {
     "what": "money",
     "position": [ 14, 22 ],
     "velocity": [ 0, 0 ],

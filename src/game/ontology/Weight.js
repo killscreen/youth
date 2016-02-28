@@ -13,10 +13,10 @@ define([], function () {
   }
 
   Weight.prototype.weight = function () {
-    return this.modifiers.reduce(function (product, modifier) {
+    return Math.max(this.modifiers.reduce(function (product, modifier) {
       var w = WEIGHTS[modifier];
       return (w === undefined ? 1 : w) * product;
-    }, 1);
+    }, 1), WEIGHTS.extremely * WEIGHTS.extremely);
   };
 
   return Weight;
