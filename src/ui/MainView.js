@@ -26,8 +26,8 @@ define([
       ];
       this.panes[0].show(toggle);
       this.panes[1].show(reset);
-      this.panes[2].show(scene);
-      this.panes[3].show(facts);
+      this.panes[2].show(facts);
+      this.panes[3].show(scene);
     }, this));
   }
 
