@@ -1,5 +1,6 @@
 define([], function () {
-  function Collision() {
+  function Collision(callbacks) {
+    this.callbacks = callbacks || [];
   }
 
   Collision.prototype.advance = function (entities, delta) {
@@ -43,8 +44,10 @@ define([], function () {
     }
 
     collisions.forEach(function (collision) {
-      collide(collision[0], collision[1]);
-    });
+      this.callbacks.concat([collide]).forEach(function (callback) {
+        callback(collision[0], collision[1]);
+      });
+    }.bind(this));
   };
 
   return Collision;
