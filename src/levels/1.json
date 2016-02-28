@@ -7,7 +7,7 @@
   },
   {
     "what": "campfire",
-    "position": [ 12, 16 ],
+    "position": [ 12, 15 ],
     "velocity": [ 0, 0 ],
     "radius": 1
   },
@@ -19,7 +19,7 @@
   },
   {
     "what": "car",
-    "position": [ 2, 18 ],
+    "position": [ 3.5, 18 ],
     "velocity": [ 0, 0 ],
     "radius": 3
   }

@@ -30,6 +30,15 @@ define([
       }
     });
 
+    if (this.window.location.search.length > 0) {
+      state.status().mutate(function (status) {
+        var search = this.window.location.search,
+          level = search.replace("?", "");
+        status.level = parseInt(level);
+      }.bind(this));
+      state.reset().notify();
+    }
+
     this.window.setInterval(function () {
       var now = Date.now(),
         delta = (now - previous) / 1000.0;
