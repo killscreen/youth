@@ -6,7 +6,9 @@ define(['../Mutable', '../Topic'], function (Mutable, Topic) {
       status: new Mutable({ running: false })
     };
     this.topics = {
-      reset: new Topic()
+      reset: new Topic(),
+      failure: new Topic(),
+      victory: new Topic()
     };
 
     this.topics.reset.listen(function () {
@@ -30,6 +32,14 @@ define(['../Mutable', '../Topic'], function (Mutable, Topic) {
 
   State.prototype.reset = function () {
     return this.topics.reset;
+  };
+
+  State.prototype.failure = function () {
+    return this.topics.failure;
+  };
+
+  State.prototype.victory = function () {
+    return this.topics.victory;
   };
 
   return State;
