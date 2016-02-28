@@ -1,8 +1,8 @@
-define([], function () {
-  function Fact(subject, object, weight) {
-    this.subject = subject;
-    this.object = object;
-    this.weight = weight;
+define(['./Weight'], function (Weight) {
+  function Fact(definition) {
+    this.subject = definition.subject;
+    this.object = definition.object;
+    this.weight = new Weight(definition.modifiers).weight();
   }
 
   Fact.prototype.is = function (subject, object, prior) {

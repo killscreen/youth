@@ -42,8 +42,8 @@ define([
 
     state.facts().observe(function (facts) {
       player.facts(facts.map(function (fact) {
-        return new Fact(fact.subject, fact.object, 1);
-      }.bind(this)));
+        return new Fact(fact);
+      }));
     }.bind(this));
 
     state.status().observe(function (status) {
