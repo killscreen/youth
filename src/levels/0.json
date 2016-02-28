@@ -1,21 +1,57 @@
 [
   {
     "what": "you",
-    "position": [ 16, 1 ],
+    "position": [ 16, 6 ],
     "velocity": [ 0, 2 ],
-    "radius": 0.5
+    "radius": 1
   },
   {
     "what": "fire",
-    "position": [ 17, 16 ],
+    "position": [ 18, 18 ],
+    "velocity": [ 0, 0 ],
+    "radius": 2
+  },
+  {
+    "what": "fire",
+    "position": [ 9, 16 ],
+    "velocity": [ 0, 0 ],
+    "radius": 0.75
+  },
+  {
+    "what": "fire",
+    "position": [ 24,  8],
+    "velocity": [ 0, 0 ],
+    "radius": 2
+  },
+  {
+    "what": "fire",
+    "position": [ 14,  3],
+    "velocity": [ 0, 0 ],
+    "radius": 1
+  },
+  {
+    "what": "fire",
+    "position": [ 18, 3],
+    "velocity": [ 0, 0 ],
+    "radius": 2
+  },
+  {
+    "what": "fire",
+    "position": [ 8,  28],
+    "velocity": [ 0, 0 ],
+    "radius": 3
+  },
+  {
+    "what": "fire",
+    "position": [ 10,  22],
     "velocity": [ 0, 0 ],
     "radius": 1.5
   },
   {
-    "what": "fire",
-    "position": [ 12, 16 ],
+    "what": "desk",
+    "position": [ 6,  6],
     "velocity": [ 0, 0 ],
-    "radius": 0.75
+    "radius": 1.5
   },
   {
     "what": "door",
