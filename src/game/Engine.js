@@ -17,9 +17,6 @@ define([
         if (!finished) {
           state.victory().notify();
           finished = true;
-          state.status().mutate(function (status) {
-            status.level += 1;
-          });
         }
       }),
       failure = new Notifier('you', 'fire', function () {
