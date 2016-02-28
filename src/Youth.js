@@ -21,13 +21,14 @@ define([
       levels.populate(state.scene(), level);
     }
 
+    state.reset().listen(reset);
     state.status().observe(function (status) {
       if (status.level !== level) {
         level = status.level;
-        reset();
+        state.reset().notify();
       }
     });
-    state.reset().listen(reset);
+
     this.window.setInterval(function () {
       var now = Date.now(),
         delta = (now - previous) / 1000.0;
