@@ -6,28 +6,23 @@ define([
   './SceneView',
   './ToggleView',
   './ButtonView',
+  './LevelView',
   'zepto',
   'lodash'
-], function (mainHtml, StaticView, Region, FactsView, SceneView, ToggleView, ButtonView, $, _) {
+], function (mainHtml, StaticView, Region, FactsView, SceneView, ToggleView, ButtonView, LevelView, $, _) {
   function MainView(state) {
     var toggle = new ToggleView('Pause', 'Play', state.status(), 'running'),
       reset = new ButtonView(state.reset(), "Reset"),
       facts = new FactsView(state.facts()),
-      scene = new SceneView(state.scene());
+      scene = new SceneView(state.scene()),
+      level = new LevelView(state.victory(), state.failure(), state.reset());
 
     StaticView.call(this, mainHtml);
 
     this.observe(_.bind(function (elements) {
-      this.panes = [
-        new Region($(elements.filter('div')[0])),
-        new Region($(elements.filter('div')[1])),
-        new Region($(elements.filter('div')[2])),
-        new Region($(elements.filter('div')[3]))
-      ];
-      this.panes[0].show(toggle);
-      this.panes[1].show(reset);
-      this.panes[2].show(facts);
-      this.panes[3].show(scene);
+      [toggle, reset, level, facts, scene].forEach(function (view, index) {
+        new Region($(elements.filter('div')[index])).show(view);
+      });
     }, this));
   }
 

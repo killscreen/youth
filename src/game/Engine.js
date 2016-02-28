@@ -12,10 +12,10 @@ define([
     var player = new Player(),
       verlet = new Verlet(),
       victory = new Notifier('you', 'door', function () {
-        window.alert("Victory!");
+        state.victory().notify();
       }),
       failure = new Notifier('you', 'fire', function () {
-        window.alert("Failure!");
+        state.failure().notify();
       }),
       colliders = [ victory, failure ].map(function (notifier) {
         return notifier.collide.bind(notifier);
