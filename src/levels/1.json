@@ -16,5 +16,11 @@
     "position": [ 28, 28 ],
     "velocity": [ 0, 0 ],
     "radius": 4
+  },
+  {
+    "what": "car",
+    "position": [ 2, 18 ],
+    "velocity": [ 0, 0 ],
+    "radius": 3
   }
 ]

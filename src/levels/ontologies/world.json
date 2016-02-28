@@ -18,5 +18,10 @@
     "subject": "door",
     "object": "good",
     "modifiers": []
+  },
+  {
+    "subject": "car",
+    "object": "good",
+    "modifiers": []
   }
 ]
