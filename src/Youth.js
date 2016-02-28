@@ -14,13 +14,19 @@ define([
     var state = new State(),
       previous = Date.now(),
       engine = new Engine(state),
-      levels = new Levels();
+      levels = new Levels(),
+      level = -1;
 
     function reset() {
-      levels.populate(state.scene(), 0);
+      levels.populate(state.scene(), level);
     }
 
-    reset();
+    state.status().observe(function (status) {
+      if (status.level !== level) {
+        level = status.level;
+        reset();
+      }
+    });
     state.reset().listen(reset);
     this.window.setInterval(function () {
       var now = Date.now(),

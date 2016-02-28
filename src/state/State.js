@@ -3,7 +3,7 @@ define(['../Mutable', '../Topic'], function (Mutable, Topic) {
     this.mutables = {
       facts: new Mutable([]),
       scene: new Mutable([]),
-      status: new Mutable({ running: false })
+      status: new Mutable({ running: false, level: 0 })
     };
     this.topics = {
       reset: new Topic(),
