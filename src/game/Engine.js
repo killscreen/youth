@@ -8,18 +8,27 @@ define([
   './Notifier',
   './ontology/Fact'
 ], function (Momentum, Collision, Player, Wall, Friction, Verlet, Notifier, Fact) {
+
   function Engine(state) {
     var player = new Player(),
       verlet = new Verlet(),
+      finished = false,
       victory = new Notifier('you', 'door', function () {
-        state.victory().notify();
+        if (!finished) {
+          state.victory().notify();
+          finished = true;
+        }
       }),
       failure = new Notifier('you', 'fire', function () {
-        state.failure().notify();
+        if (!finished) {
+          state.failure().notify();
+          finished = true;
+        }
       }),
       colliders = [ victory, failure ].map(function (notifier) {
         return notifier.collide.bind(notifier);
       });
+
 
     this.scene = state.scene();
     this.subsystems = [
@@ -43,6 +52,7 @@ define([
 
     state.reset().listen(function () {
       verlet.reset();
+      finished = false;
     });
   }
 
