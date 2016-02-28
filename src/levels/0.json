@@ -57,6 +57,7 @@
     "what": "door",
     "position": [ 16, 30 ],
     "velocity": [ 0, 0 ],
-    "radius": 1
+    "radius": 1,
+    "immobile": true
   }
 ]

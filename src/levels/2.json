@@ -1,0 +1,54 @@
+[
+  {
+    "what": "you",
+    "position": [ 16, 2 ],
+    "velocity": [ 0, 0 ],
+    "radius": 1
+  },
+  {
+    "what": "criminal",
+    "position": [ 28, 6 ],
+    "velocity": [ 0, 0 ],
+    "radius": 1
+  },
+  {
+    "what": "criminal",
+    "position": [ 29, 21 ],
+    "velocity": [ 0, 0 ],
+    "radius": 1
+  },
+  {
+    "what": "criminal",
+    "position": [ 30, 16 ],
+    "velocity": [ 0, 0 ],
+    "radius": 1
+  },
+  {
+    "what": "door",
+    "position": [ 16, 28 ],
+    "velocity": [ 0, 0 ],
+    "radius": 2,
+    "immobile": true
+  },
+  {
+    "what": "money",
+    "position": [ 4, 16 ],
+    "velocity": [ 0, 0 ],
+    "radius": 0.25,
+    "immobile": true
+  },
+  {
+    "what": "money",
+    "position": [ 5, 6 ],
+    "velocity": [ 0, 0 ],
+    "radius": 0.25,
+    "immobile": true
+  },
+  {
+    "what": "money",
+    "position": [ 14, 22 ],
+    "velocity": [ 0, 0 ],
+    "radius": 0.5,
+    "immobile": true
+  }
+]

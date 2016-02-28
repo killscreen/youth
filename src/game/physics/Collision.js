@@ -27,12 +27,22 @@ define([], function () {
         overlap = distance(a, b) - scale,
         ratio = overlap / scale,
         delta = difference(a, b);
-      a.position = a.position.map(function (v, i) {
-        return v - delta[i] * ratio;
-      });
-      b.position = b.position.map(function (v, i) {
-        return v + delta[i] * ratio;
-      });
+      if (!a.immobile && !b.immobile) {
+        a.position = a.position.map(function (v, i) {
+          return v - delta[i] * ratio;
+        });
+        b.position = b.position.map(function (v, i) {
+          return v + delta[i] * ratio;
+        });
+      } else if (!a.immobile) {
+        a.position = a.position.map(function (v, i) {
+          return v - delta[i] * ratio * 2;
+        });
+      } else if (!b.immobile) {
+        b.position = b.position.map(function (v, i) {
+          return v + delta[i] * ratio * 2;
+        });
+      }
     }
 
     for (i = 0; i < entities.length; i += 1) {

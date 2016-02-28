@@ -23,5 +23,10 @@
     "subject": "car",
     "object": "good",
     "modifiers": []
+  },
+  {
+    "subject": "criminal",
+    "object": "bad",
+    "modifiers": []
   }
 ]

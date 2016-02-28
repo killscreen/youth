@@ -1,6 +1,7 @@
 define([
   'text!./0.json',
-  'text!./1.json'
+  'text!./1.json',
+  'text!./2.json'
 ], function () {
   var levels = Array.prototype.slice.call(arguments, 0);
 

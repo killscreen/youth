@@ -1,0 +1,12 @@
+[
+  {
+    "subject": "money",
+    "object": "good",
+    "modifiers": [ "very" ]
+  },
+  {
+    "subject": "you",
+    "object": "good",
+    "modifiers": [ "slightly" ]
+  }
+]
