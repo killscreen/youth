@@ -2,13 +2,13 @@
   {
     "what": "you",
     "position": [ 16, 16 ],
-    "velocity": [ 0, 2 ],
+    "velocity": [ 0, 0 ],
     "radius": 1
   },
   {
     "what": "campfire",
     "position": [ 12, 16 ],
-    "velocity": [ 0, 2 ],
+    "velocity": [ 0, 0 ],
     "radius": 1
   },
   {

@@ -1,22 +1,31 @@
 define([
   'text!./ontologies/world.json',
+  'text!./ontologies/bear.json',
   '../game/ontology/Fact',
   '../game/ontology/Ontology'
-], function (world, Fact, Ontology) {
-  function Ontologies() {
-    function ontology(json) {
-      return new Ontology(JSON.parse(json).map(function (fact) {
-        return new Fact(fact);
-      }));
-    }
+], function (world, bear, Fact, Ontology) {
+  function ontology(facts) {
+    return new Ontology(facts.map(function (fact) {
+      return new Fact(fact);
+    }));
+  }
 
-    this.ontologies = {
-      world: ontology(world)
-    };
+  function Ontologies() {
+    this.global = ontology(JSON.parse(world));
+    this.ontologies = {};
+    this.set('bear', JSON.parse(bear));
   }
 
   Ontologies.prototype.world = function () {
-    return this.ontologies.world;
+    return this.global;
+  };
+
+  Ontologies.prototype.get = function (what) {
+    return this.ontologies[what];
+  };
+
+  Ontologies.prototype.set = function (what, facts) {
+    this.ontologies[what] = ontology(facts);
   };
 
   return Ontologies;

@@ -1,0 +1,12 @@
+[
+  {
+    "subject": "you",
+    "object": "good",
+    "modifiers": [ "very" ]
+  },
+  {
+    "subject": "fire",
+    "object": "bad",
+    "modifiers": []
+  }
+]

@@ -1,17 +1,16 @@
 define([
   './physics/Momentum',
   './physics/Collision',
-  './physics/Player',
+  './physics/Intelligence',
   './physics/Wall',
   './physics/Friction',
   './physics/Verlet',
   './Concluder',
   './ontology/Fact'
-], function (Momentum, Collision, Player, Wall, Friction, Verlet, Concluder, Fact) {
+], function (Momentum, Collision, Intelligence, Wall, Friction, Verlet, Concluder, Fact) {
 
   function Engine(state, ontologies) {
-    var player = new Player(),
-      verlet = new Verlet(),
+    var verlet = new Verlet(),
       finished = false,
       finish = function (topic) {
         if (!finished) {
@@ -28,18 +27,14 @@ define([
     this.scene = state.scene();
     this.subsystems = [
       verlet,
-      player,
+      new Intelligence(ontologies),
       new Momentum(),
       new Collision(colliders),
       new Friction(0.1),
       new Wall(32)
     ];
 
-    state.facts().observe(function (facts) {
-      player.facts(facts.map(function (fact) {
-        return new Fact(fact);
-      }));
-    }.bind(this));
+    state.facts().observe(ontologies.set.bind(ontologies, 'you'));
 
     state.status().observe(function (status) {
       this.running = status.running;
