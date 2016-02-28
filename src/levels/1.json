@@ -1,8 +1,20 @@
 [
   {
     "what": "you",
-    "position": [ 16, 6 ],
+    "position": [ 16, 16 ],
     "velocity": [ 0, 2 ],
     "radius": 1
+  },
+  {
+    "what": "campfire",
+    "position": [ 12, 16 ],
+    "velocity": [ 0, 2 ],
+    "radius": 1
+  },
+  {
+    "what": "bear",
+    "position": [ 28, 28 ],
+    "velocity": [ 0, 0 ],
+    "radius": 4
   }
 ]
