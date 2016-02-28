@@ -17,11 +17,10 @@ define([
       levels = new Levels(),
       level = -1;
 
-    function reset() {
+    state.reset().listen(function () {
       levels.populate(state.scene(), level);
-    }
+    });
 
-    state.reset().listen(reset);
     state.status().observe(function (status) {
       if (status.level !== level) {
         level = status.level;
